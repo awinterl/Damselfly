@@ -3,6 +3,7 @@ using System;
 using Damselfly.Core.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Damselfly.Core.Migrations
 {
     [DbContext(typeof(ImageContext))]
-    partial class ImageContextModelSnapshot : ModelSnapshot
+    [Migration("20250115174635_DigikamUpdate.cs")]
+    partial class DigikamUpdatecs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -117,21 +120,21 @@ namespace Damselfly.Core.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "c30ff157-e06e-4626-98dd-2bf1a211b888",
+                            ConcurrencyStamp = "bd4e21d9-fd90-4243-979d-9632f89f9ba0",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "c0bab40b-77e2-474f-9a38-56b68cba402b",
+                            ConcurrencyStamp = "e4f51dca-fabf-4084-a110-d5e2bb4c3fad",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "22c27eea-c359-4adb-b4b4-b29529962d9a",
+                            ConcurrencyStamp = "c091cf3c-16ea-432c-99aa-cdc11eaee63a",
                             Name = "ReadOnly",
                             NormalizedName = "READONLY"
                         });
@@ -428,9 +431,6 @@ namespace Damselfly.Core.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ViewCounts")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ViewTime")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ImageId");

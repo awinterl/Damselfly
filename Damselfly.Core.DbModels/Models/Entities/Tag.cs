@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
@@ -15,6 +15,7 @@ public class Tag
     public enum TagTypes
     {
         IPTC = 0,
+        TagsList = 1,
         Classification = 1
     }
 

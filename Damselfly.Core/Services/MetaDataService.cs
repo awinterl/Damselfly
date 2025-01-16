@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -240,6 +240,18 @@ public class MetaDataService (
                 if( nvps.ContainsKey("exif:DateTimeOriginal") &&
                     DateTime.TryParse(nvps["exif:DateTimeOriginal"], out var dateTime) )
                     image.MetaData.DateTaken = dateTime;
+
+            if( string.IsNullOrEmpty(image.DigiKamID) )
+                image.DigiKamID = GetXMPFieldValue(nvps, prefix: "WCA:ImageID" );
+
+            if( image.DigikamAlbumID == 0 )
+                image.DigikamAlbumID = int.Parse(GetXMPFieldValue(nvps, prefix: "WCA:AlbumID"));
+
+            if( image.ViewCounts == 0 )
+                image.ViewCounts = int.Parse(GetXMPFieldValue(nvps, prefix: "WCA:AnzahlAufrufe"));
+
+            if( image.ViewTime == 0 )
+                image.ViewTime = int.Parse(GetXMPFieldValue(nvps, prefix: "WCA:DauerInSekunden"));
 
             if( string.IsNullOrEmpty(image.MetaData.Description) )
                 image.MetaData.Description = GetXMPFieldValue( nvps, "dc:Description" );

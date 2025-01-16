@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,6 +23,14 @@ public class Image
 
     // Image File metadata
     public string? FileName { get; set; }
+    // Neue Spalte Testhalber
+    public string? DigiKamID { get; set; }
+
+    // Digikam Daten
+    public int DigikamAlbumID { get; set; }
+    public int ViewCounts { get; set; }
+    public int ViewTime { get; set; }
+
     public int FileSizeBytes { get; set; }
     public DateTime FileCreationDate { get; set; }
     public DateTime FileLastModDate { get; set; }
